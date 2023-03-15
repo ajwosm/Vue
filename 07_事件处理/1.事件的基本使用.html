@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>欢迎来到尚硅谷{{name}}</h2>
+    <button v-on:click="show1">点我提示信息1</button>
+    <button @click="show2($event,66)">点我提示信息2</button>
+
+</div>
+</body>
+<script>
+    Vue.config.productionTip = false
+    let vm = new Vue({
+        el: '#root',
+        data: {
+            name: '学习'
+        },
+        methods: {
+            show1() {
+
+                alert("同学你好！")
+            },
+            show2(event, number) {
+                console.log(event, number)
+                console.log(this)//此处的this是vm
+                alert("同学你好！！")
+            }
+        }
+    })
+</script>
+</html>

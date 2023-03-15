@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的使用</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div>
+    <div id="root">
+        <!--使用组件-->
+        <school></school>
+        <hr>
+        <!--    使用组件-->
+        <student></student>
+    </div>
+
+
+</div>
+<script>
+    // <!--    第一步：创建组件-->
+    const school = Vue.extend({
+        template: `
+          <div>
+          <h2>学校:{{ schoolName }}</h2>
+          <h2>地址:{{ address }}</h2>
+          <button @click="showName">点我提示学校名</button>
+          </div>
+        `,
+        data() {
+            return {
+                schoolName: '邮电',
+                address: '咸阳',
+            }
+        },
+        methods: {
+            showName() {
+                alert(this.schoolName)
+            }
+        }
+    })
+
+
+    // <!--    第一步：创建组件-->
+    const student = Vue.extend({
+        template: `
+          <div>
+          <h2>学校:{{ studentName }}</h2>
+          <h2>地址:{{ age }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                studentName: 'cheng',
+                age: '20',
+            }
+        }
+    })
+
+
+    new Vue({
+        el: '#root',
+        // 注册组件
+        components: {
+            school: school,
+            student: student,
+        }
+    })
+
+</script>
+</body>
+</html>

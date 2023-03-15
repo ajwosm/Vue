@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVVM模型</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h1>学校名称：{{name}}</h1>
+    <h1>学校地址：{{address}}</h1>
+</div>
+</body>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            name: '尚硅谷',
+            address: '北京'
+        }
+    })
+</script>
+</html>
