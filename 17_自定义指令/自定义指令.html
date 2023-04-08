@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+<h2>当前的n值是<span v-text="n"></span></h2>
+<h2>放大十倍后的n值是<span v-big-number="n"></span></h2>
+  <button @click="n++">点我n++</button>
+  <hr>
+  <input type="text" v-fbind:value="n">
+</div>
+<div id="root2">
+  <input type="text" v-fbind:value="x">
+</div>
+</body>
+<script>
+  //定义全局指令
+  Vue.directive('fbind',{
+    //指令与元素成功绑定时
+    bind(element,binging){
+      element.value = binging.value
+    },
+    //指令所在元素被插入页面时
+    inserted(element,binging){
+      element.focus();
+    },
+    //指令所在的模板重新解析时
+    update(element,binging){
+      element.value = binging.value
+      element.focus();
+    }
+  })
+  new Vue({
+    el:'#root',
+    data:{
+      n:1,
+    },
+    directives:{
+      'big-number'(element,binging){
+        element.innerText = binging.value*10;
+        console.log('big-number',this)
+      },
+      // 'fbind':{
+      //   //指令与元素成功绑定时
+      //   bind(element,binging){
+      //     element.value = binging.value
+      //   },
+      //   //指令所在元素被插入页面时
+      //   inserted(element,binging){
+      //     element.focus();
+      //   },
+      //   //指令所在的模板重新解析时
+      //   update(element,binging){
+      //     element.value = binging.value
+      //     element.focus();
+      //   }
+      // }
+    }
+  })
+  new Vue({
+    el:'#root2',
+    data:{
+      x:1
+    }
+  })
+</script>
+</html>

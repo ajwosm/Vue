@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom</title>
+</head>
+<body>
+<button id="btn">点我创建一个输入框</button>
+
+<script>
+  const btn = document.getElementById('btn');
+  btn.onclick=() =>{
+    const input = document.createElement('input');
+
+    input.className = 'demo'
+    input.value = 99
+    input.onclick = ()=>{alert(1)}
+    //把input元素放在body中
+    document.body.appendChild(input);
+    //默认选中input框
+    input.focus();
+
+
+  }
+</script>
+</body>
+</html>
