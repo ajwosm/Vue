@@ -15,7 +15,7 @@
 - [x] 列表渲染
 - [x] 条件渲染
 - [x] axios
-- [ ] router
+- [x] router
 - [ ] 状态管理
 	- [ ] Vuex
 	- [ ] pinia
